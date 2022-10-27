@@ -1,0 +1,16 @@
+// Google sheets script: simple copy and paste solution
+
+function copysaveData() {
+  
+  var copy1sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Copy1");
+  var copy2sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Copy2");
+  var pastesheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Paste");
+
+  // Get Value from Single Cell
+  var value1 = copy1sheet.getRange('B7').getValue();
+  var value2 = copy2sheet.getRange('B5').getValue();
+  var date = pastesheet.getRange('B1').getValue();
+
+  pastesheet.appendRow([date,value1,value2]);
+
+}
